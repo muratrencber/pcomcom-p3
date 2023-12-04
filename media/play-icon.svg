@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="61.181999"
+   height="61.181999"
+   viewBox="0 0 61.182 61.182"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="play-icon.svg"
+   inkscape:version="1.3.1 (91b66b0783, 2023-11-16)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="9.0956988"
+     inkscape:cx="28.255113"
+     inkscape:cy="30.72881"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <g
+     id="Group_38215"
+     data-name="Group 38215"
+     transform="translate(33.02775,35)"
+     style="fill:#ffffff;fill-opacity:1">
+    <g
+       id="play-button-arrowhead_1_"
+       data-name="play-button-arrowhead (1)"
+       transform="translate(-30,-35)"
+       style="fill:#ffffff;fill-opacity:1">
+      <path
+         id="Path_18"
+         data-name="Path 18"
+         d="M 18.095,1.349 C 12.579,-1.815 8.107,0.777 8.107,7.134 v 46.91 c 0,6.363 4.472,8.952 9.988,5.791 l 41,-23.514 c 5.518,-3.165 5.518,-8.293 0,-11.457 z"
+         transform="translate(-8.107)"
+         style="fill:#ffffff;fill-opacity:1" />
+    </g>
+  </g>
+</svg>

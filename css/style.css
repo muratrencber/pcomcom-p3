@@ -1,0 +1,516 @@
+@keyframes blink
+{
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.img-container, .img-container *
+{
+    pointer-events: none;
+}
+html
+{
+}
+* {
+    box-sizing: border-box;
+}
+body
+{
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    overflow: auto;
+}
+.app-main
+{
+    max-width: 100vw;
+    min-width: 100vw;
+    width: 100vw;
+    max-height: 100vh;
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+}
+.topbar
+{
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 4px rgba(0, 0, 0, 0.1);
+    gap: 8px;
+    z-index: 5;
+    padding: 12px;
+}
+.topbar h3
+{
+    flex: 1;
+    font-weight: 400;
+}
+.panels
+{
+    flex: 1;
+    width: 100vw;
+    height: calc(100vh - 64px);
+    background-color: black;
+    position: relative;
+}
+.panels > div
+{
+    position: absolute;
+    min-width: 0;
+    min-height: 0;
+    background-color: white;
+}
+.panels > div:nth-child(1)
+{
+}
+.panels > div:nth-child(2)
+{
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+}
+.panels > div:nth-child(3)
+{
+}
+.panels > div:nth-child(4)
+{
+}
+.button
+{
+    background-color: red;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.button:hover
+{
+    background-color: #a00000;
+}
+.button img
+{
+    min-height: 24px;
+    max-height: 24px;
+}
+.button.play
+{
+    background-color: #02d15d;
+}
+.button.play:hover
+{
+    background-color: #03a047;
+}
+.button.stop
+{
+    background-color: #d10236;
+}
+.button.stop:hover
+{
+    background-color: #a0002d;
+}
+.button.pause
+{
+    background-color: #02d1d1;
+}
+.button.pause:hover
+{
+    background-color: #03a0a0;
+}
+.button.settings
+{
+    background-color: gray;
+}
+.button.settings:hover
+{
+    background-color: #505050;
+}
+.topbar #timestamp
+{
+    margin-right: 16px;
+}
+.app-settings.hidden, .app-settings.hidden .settings-background, .app-settings.hidden .settings-panel,
+.popup-panel.hidden, .popup-panel.hidden .popup-background, .popup-panel.hidden .popup
+{
+    opacity: 0;
+    pointer-events: none;
+}
+.app-settings.hidden .settings-panel,
+.popup-panel.hidden .popup
+{
+    opacity: 0;
+    transform: translate(-50%,10%);
+}
+.app-settings, .popup-panel
+{
+    display: block;
+    position: absolute;
+    left: 0;
+    top:0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+}
+.app-settings .settings-background, .popup-panel .popup-background
+{
+    opacity: 1;
+    background-color: #00000080;
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.app-settings .settings-panel, .popup-panel .popup
+{
+    transition: 0.2s ease-in-out;
+    background-color: white;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 40%;
+    max-height: 80%;
+    border-radius: 8px;
+    box-shadow: 0 6px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    opacity: 1;
+}
+.settings-header, .popup-header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    box-shadow: 0 6px 4px rgba(0, 0, 0, 0.05);
+}
+.settings-header .button img
+{
+    min-height: 12px;
+    max-height: 12px;
+} 
+.settings-content
+{
+    overflow-y: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+select, option
+{
+    all: revert;
+    padding: 8px;
+    font-family: "Lexend", sans-serif;
+    font-weight: 300;
+    border: 1px solid black;
+    border-radius: 6px;
+    color: black;
+    background-color: white;
+}
+.settings-content > div
+{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.settings-content > div input, .settings-content > div select
+{
+    flex: 1;
+    max-width: 30%;
+}
+#timestamp
+{
+    font-family: "Space Mono", monospace;
+}
+#console-panel
+{
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+}
+#console-panel > div
+{
+    flex: 1;
+    margin: 32px;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 8px;
+}
+#console-panel > div > div
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.console
+{
+    flex: 1;
+    flex-grow: 1;
+    flex-basis: 0;
+    background-color: black;
+    font-family: monospace;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow-y: auto;
+    gap: 12px;
+    padding: 8px;
+}
+.console-indicator
+{
+    background-color: white;
+    height: 1em;
+    width: 0.4em;
+    min-width: 0.4em;
+    min-height: 1em;
+}
+#rdt-model
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-container
+{
+    position: relative;
+    min-height: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.img-container img
+{
+    position: absolute;
+    top: 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+.masked-image.hidden
+{
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+}
+.masked-image
+{
+    opacity: 1;
+    transition: 0.2s ease-in-out;
+}
+.packet-asset
+{
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    z-index: 2;
+}
+.packet-asset.corrupt
+{
+    filter: hue-rotate(200deg);
+}
+.packet-asset.dropped
+{
+    background-image: url("../media/packet/packet_dropped.png");
+    background-size: cover;
+    transform: translate(-50%, -50%);
+}
+#fsm-containers-container
+{
+    gap: 12px;
+}
+.fsm-container
+{
+    font-size: 0.9em;
+    flex:1;
+    margin: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    width: 1fr;
+    height: 1fr;
+}
+.fsm-container.horizontal
+{
+    flex-direction: row;
+}
+.fsm-container > .fsm-container
+{
+    margin: 0;
+}
+.fsm-container .img-container
+{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.fsm-container .img-container img
+{
+    min-width: 0;
+    min-height: 0;
+}
+.fsm-sender, .fsm-receiver
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.fsm-container .toggles
+{
+    display: flex;
+    justify-content: right;
+}
+.fsm-container .toggles .toggle
+{
+    border: 1px solid #007cb1;
+    color: #007cb1;
+    padding: 4px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.fsm-container .toggles .toggle.selected
+{
+    background-color: #007cb1;
+    color: white;
+}
+.fsm-container .toggles .toggle:hover
+{
+    background-color: #007cb1;
+    color: white;
+}
+.fsm-container .toggles .toggle:first-child
+{
+    border-radius: 4px 0 0 4px;
+}
+.fsm-container .toggles .toggle:last-child
+{
+    border-radius: 0 4px 4px 0;
+}
+.fsm-container.hidden, .fsm-receiver.hidden, .fsm-sender.hidden
+{
+    display: none;
+}
+.opseq-container
+{
+    margin: 24px;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    gap: 24px;
+    height: calc(100% - 48px);
+}
+.opseq-container .opseq-diagram
+{
+    align-self: stretch;
+    flex-grow: 1;
+    flex-basis: 1;
+    border-left: 4px solid #007cb1;
+    border-right: 4px solid #007cb1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+}
+.opseq-diagram-element
+{
+    width: 100%;
+    max-width: 100%;
+    position: absolute;
+    height: 96px;
+    margin-bottom: 0;
+}
+.opseq-diagram-arrow
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: #007cb1;
+    transform-origin: top left;
+    cursor: pointer;
+}
+.opseq-diagram-element.reverse .opseq-diagram-arrow
+{
+    left: unset;
+    right: 0;
+    transform-origin: top right;
+}
+.opseq-diagram-arrow-tip
+{
+    background-image: url("../media/arrow_head.svg");
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+    transform-origin: center center;
+    transform: translate(-30%, -20%);
+    position: absolute;
+    cursor: pointer;
+}
+.opseq-diagram-element.reverse .opseq-diagram-arrow-tip
+{
+    transform: translate(30%, 40%);
+}
+.opseq-diagram-dropped-indicator
+{
+    background-image: url("../media/packet/packet_dropped.png");
+    background-size: cover;
+    width: 48px;
+    height: 48px;
+    transform-origin: center center;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+.opseq-diagram-element.corrupted .opseq-diagram-arrow, .opseq-diagram-element.corrupted .opseq-diagram-arrow-tip
+{
+    filter: hue-rotate(200deg);
+}
+.opseq-diagram-element .short-description
+{
+    width: 100%;
+    text-align: center;
+    font-family: monospace;
+    z-index: 10;
+}
+.popup table
+{
+    margin: 32px;
+    text-align: center;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+.popup table th, .popup table td
+{
+    border-bottom: 1px solid black;
+    padding: 8px;
+}
+.popup table tbody th:first-child, .popup table tbody td:first-child
+{
+    border-right: 1px solid black;
+}
+.popup table tr:last-child th, .popup table tr:last-child td
+{
+    border-bottom: none;
+}
+.popup-content
+{
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+}

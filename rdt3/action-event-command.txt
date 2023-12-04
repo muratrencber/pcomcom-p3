@@ -1,0 +1,41 @@
+Actions:
+CLIENT
+rdt_send
+rdt_rcv
+make_pkt
+udt_send
+isNAK
+
+SERVER
+rdt_rcv
+extract
+deliver_data
+corrupt
+make_pkt
+
+Commands:
+CLIENT
+Send packet
+Resend packet
+
+SERVER
+Send NAK packet
+Extratc & send ACK packet
+
+States:
+CLIENT
+Wait for call above
+Wait for ACK or NAK
+
+SERVER
+Wait for call from below
+
+Events:
+CLIENT
+Data sent
+NAK
+ACK
+
+SERVER
+Corrupt data received
+Non-corrupt data received

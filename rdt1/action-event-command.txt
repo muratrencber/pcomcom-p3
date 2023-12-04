@@ -1,0 +1,33 @@
+==================================
+Actions:
+CLIENT
+rdt_send
+make_pkt
+udt_send
+
+SERVER
+rdt_rcv
+extract
+deliver_data
+==================================
+Commands:
+CLIENT
+Send packet
+
+SERVER
+Extract packet
+==================================
+States:
+CLIENT
+Wait for call above
+
+SERVER
+Wait for call from below
+==================================
+Events:
+CLIENT
+Call received from above
+
+SERVER
+Call received from below
+==================================
